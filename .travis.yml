@@ -1,0 +1,18 @@
+language: node_js
+node_js: node
+script:
+- npm install
+- npm run build -- --env=prod
+- pwd
+- ls -l
+deploy:
+  provider: s3
+  access_key_id: AKIAJC5XYYJFQKGCKVEA
+  secret_access_key:
+    secure: gsOM/N1taRpdN80GIi19C4H53pz3fYa/+JIOrcs4ew0ahefko8WkNUycIlCN46zY7FVcf3jLaHx46xZVDyFDapqvmVSj3r3S6kdEycCygkpOOvifWoBQcZ+m/8NhsiTbsYqpM8EQlSKZ2QbOuwuTv8HWfD7gMqnRtyNYlDYXUEezGYqKo7xBapEfvt+IU7qtFbQvhdIZetXBbTDOH5gmWZpM13fZXTDEls06hRgqFKEMK47SEVeaJEKjYyw/9+sGy5b+wVwuFOEVCCxgKQfcj4MXUuICXODigorrpBqSwEg0PsZt/0Fj4kRoKzSJ0CdZKunJ8NXLAMzZXCmM/lveMuKfhjPWMr0A1HnRACsYgJKnHkKmjqOONL7IGMFjLiaWCmhc+a1CFuMyF2fJh5SQM5XVwjPDCX/ysgIgwaL7Tco7Ftmh5kdSuDGVY+mBdOQNx7FfxZ35CBQ8BLujpoQMYU9mnPpSYO7Zn0x7dCacmyi3CD8VPUYpCsbjXH3KI39/6ChOTkYUGneDSKNOk5XHRwtvR3jO9T/aeGbSQC+Gcec6aSmBHZwgfqAK2l6brUiaIELQ0IGuWkS/D29OKARypIS1KbWujmOwptpJxwL6Ioj30rDNn17T+WMs1F4c243t3hAvY0xC8c58HrE66ZvoAyB0d8c8MoHVz+Ra0oJT9D0=
+  bucket: yodots
+  local-dir: dist
+  skip-cleanup: true
+  acl: public_read
+  on:
+    repo: aliciacasiano/yodots-web
