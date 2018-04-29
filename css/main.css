@@ -66,6 +66,12 @@ header {
   font-size: 25px;
 }
 
+.demo {
+  font-size: 18px;
+  color: red;
+  margin-bottom: 10px;
+}
+
 #login-email, #login-password, .login-button, .logout-button, .settings-button {
   padding: 5px;
 }
